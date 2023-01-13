@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ConsultaCEP.Views.AboutPage"
+             xmlns:vm="clr-namespace:ConsultaCEP.ViewModels"
+             Title="{Binding Title}">
+    
+    <ContentPage.BindingContext>
+        <vm:AboutViewModel />
+    </ContentPage.BindingContext>
+    
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Color x:Key="Accent">#96d1</Color>
+        </ResourceDictionary>
+    </ContentPage.Resources>
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <StackLayout BackgroundColor="GreenYellow" VerticalOptions="FillAndExpand" HorizontalOptions="Fill">
+            <StackLayout Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="Center">
+                <ContentView Padding="0,40,0,40" VerticalOptions="FillAndExpand">
+                    <Image Source="logocep.png" VerticalOptions="Center" HeightRequest="64" />
+                </ContentView>
+            </StackLayout>
+        </StackLayout>
+        <ScrollView Grid.Row="1">
+            <StackLayout Orientation="Vertical" Padding="20,20,20,20" Spacing="10">
+                <Label Text="Informe o CEP" FontSize="Caption" FontAttributes="Bold"/>
+                <Editor x:Name="TextCep" ClassId="TextCep" Text="06013030"
+                        Visual="Material" Keyboard="Numeric" MaxLength="9" />
+
+                <Button Margin="0,9,0,0" Text="Pesquisar"
+                        Clicked="MetodoPesquisaCEP"
+                        BackgroundColor="Black"
+                        TextColor="GreenYellow" />
+            </StackLayout>
+        </ScrollView>
+        <ScrollView Grid.Row="2">
+            <StackLayout Orientation="Vertical" Padding="20,0,30,0" Spacing="10">
+                <Label Text="CEP" FontAttributes="Bold" />
+                <Label x:Name="lbl_Cep"/>
+                <Label Text="Logradouro" FontAttributes="Bold"/>
+                <Label x:Name="lbl_logradouro"/>
+                <Label Text="Complemento" FontAttributes="Bold"/>
+                <Label x:Name="lbl_complemento"/>
+                <Label Text="Bairro" FontAttributes="Bold"/>
+                <Label x:Name="lbl_bairro"/>
+                <Label Text="Localidade" FontAttributes="Bold"/>
+                <Label x:Name="lbl_localidade"/>
+                <Label Text="UF" FontAttributes="Bold"/>
+                <Label x:Name="lbl_uf"/>
+                <Label Text="IBGE" FontAttributes="Bold"/>
+                <Label x:Name="lbl_ibge"/>
+                <Label Text="GIA" FontAttributes="Bold"/>
+                <Label x:Name="lbl_gia"/>
+                <Label Text="DDD" FontAttributes="Bold"/>
+                <Label x:Name="lbl_ddd"/>
+                <Label Text="SIAFI" FontAttributes="Bold"/>
+                <Label x:Name="lbl_siafi"/>
+
+            </StackLayout>
+        </ScrollView>
+    </Grid>
+
+</ContentPage>
